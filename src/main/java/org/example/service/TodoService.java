@@ -16,6 +16,7 @@ public class TodoService {
 
     private final TodoRepository todoRepository;
 
+    //추가
     public TodoEntity add(TodoRequest request){
         TodoEntity todoEntity = new TodoEntity();
         todoEntity.setTitle(request.getTitle());
@@ -24,15 +25,18 @@ public class TodoService {
         return this.todoRepository.save(todoEntity);
     }
 
+    //조회
     public TodoEntity searchById(Long id){
         return this.todoRepository.findById(id)
                 .orElseThrow(()->new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
 
-    public List<TodoEntity> SearchAll(){
+    //전체 조회
+    public List<TodoEntity> searchAll(){
         return this.todoRepository.findAll();
     }
 
+    //수정
     public TodoEntity updateById(Long id, TodoRequest request){
         TodoEntity todoEntity = this.searchById(id);
         if(request.getTitle()!=null){
@@ -47,23 +51,15 @@ public class TodoService {
         return this.todoRepository.save(todoEntity);
     }
 
+
+    //삭제
      public void deleteById(Long id){
         this.todoRepository.deleteById(id);
      }
 
-    public void deleteAll(Long id){
+    //전체 목록 삭제
+    public void deleteAll(){
         this.todoRepository.deleteAll();
     }
 
-    //추가
-
-    //조회
-
-    //전체 조회
-
-    //수정
-
-    //삭제
-
-    //전체 목록 삭제
 }
