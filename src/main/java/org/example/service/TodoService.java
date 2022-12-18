@@ -39,12 +39,15 @@ public class TodoService {
     //수정
     public TodoEntity updateById(Long id, TodoRequest request){
         TodoEntity todoEntity = this.searchById(id);
+        //타이틀 수정
         if(request.getTitle()!=null){
             todoEntity.setTitle(request.getTitle());
         }
+        //오더 수정
         if(request.getOrder()!=null){
             todoEntity.setOrder(request.getOrder());
         }
+        //컴플리티드 수정
         if(request.getComplected()!=null){
             todoEntity.setCompleted(request.getComplected());
         }

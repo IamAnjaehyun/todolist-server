@@ -39,6 +39,7 @@ public class TodoController {
         return ResponseEntity.ok(new TodoResponse(result));
     }
 
+    //아이템 하나만 조회
     @GetMapping("{id}")
     public ResponseEntity<TodoResponse> readOne(@PathVariable Long id){
         System.out.println("READ ONE");
@@ -46,15 +47,17 @@ public class TodoController {
         return ResponseEntity.ok(new TodoResponse(result));
     }
 
+    //전체 조회
     @GetMapping
     public ResponseEntity<List<TodoResponse>> readAll(){
         System.out.println("READ ALL");
         List<TodoEntity> list = this.service.searchAll();
         List<TodoResponse> response = list.stream().map(TodoResponse::new)
-                .collect(Collectors.toList());
+                                                    .collect(Collectors.toList());
         return ResponseEntity.ok(response);
     }
 
+    //수정
     @PatchMapping("{id}")
     public ResponseEntity<TodoResponse> update(@PathVariable Long id, @RequestBody TodoRequest request){
         System.out.println("UPDATE");
@@ -65,7 +68,7 @@ public class TodoController {
     @DeleteMapping("{id}")
     public ResponseEntity<?> deleteOne(@PathVariable Long id){
         System.out.println("DELETE");
-        this.service.deleteById(id);
+        this.service.deleteAll();
         return ResponseEntity.ok().build();
     }
 
