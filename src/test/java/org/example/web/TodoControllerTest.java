@@ -1,4 +1,4 @@
-package org.example.controller;
+package org.example.web;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.example.model.TodoEntity;
@@ -12,15 +12,14 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@WebMvcTest(TodoController.class)
-class TodoControllerTest {
+@WebMvcTest(Web.class)
+class WebTest {
 
     @Autowired
     MockMvc mvc;

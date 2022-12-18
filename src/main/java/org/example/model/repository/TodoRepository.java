@@ -1,4 +1,4 @@
-package org.example.repository;
+package org.example.service.repository;
 
 import org.example.model.TodoEntity;
 import org.springframework.data.jpa.repository.JpaRepository;

@@ -1,4 +1,4 @@
-package org.example.controller;
+package org.example.web;
 
 import lombok.AllArgsConstructor;
 import org.example.model.TodoEntity;
@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 @RestController
 @RequestMapping("/")
-public class TodoController {
+public class Web {
 
     private final TodoService service;
 
